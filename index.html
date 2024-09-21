@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>24/7 Radio Paradise</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/css-doodle/0.34.3/css-doodle.min.js"></script>
+</head>
+<body>
+    <css-doodle>
+        <style>
+            --color: #51eaea, #fffde1, #ff9d76, #FB3569;
+
+            @grid: 30x1 / 100vw 100vh / #270f34; 
+            
+            :container {
+                perspective: 30vmin;
+                --deg: @p(-180deg, 180deg);
+            }
+            
+            :after, :before {
+                content: '';
+                background: @p(--color); 
+                @place: @r(100%) @r(100%);
+                @size: @r(6px);
+                @shape: heart;
+            }
+
+            @place: center;
+            @size: 18vmin; 
+
+            box-shadow: @m2(0 0 50px @p(--color));
+            background: @m100(
+                radial-gradient(@p(--color) 50%, transparent 0) 
+                @r(-20%, 120%) @r(-20%, 100%) / 1px 1px
+                no-repeat
+            );
+
+            will-change: transform, opacity;
+            animation: scale-up 12s linear infinite;
+            animation-delay: calc(-12s / @I * @i);
+
+            @keyframes scale-up {
+                0%, 95.01%, 100% {
+                    transform: translateZ(0) rotate(0);
+                    opacity: 0;
+                }
+                10% { 
+                    opacity: 1; 
+                }
+                95% {
+                    transform: 
+                        translateZ(35vmin) rotateZ(var(--deg));
+                }
+            }
+        </style>
+    </css-doodle>
+
+    <div id="content">
+        <h1>24/7 Radio Paradise</h1>
+
+        <div id="radioContainer">
+            <button id="button1" class="radioButton">Lofi Hip Hop</button>
+            <button id="button2" class="radioButton">Classical</button>
+            <button id="button3" class="radioButton">Jazz</button>
+            <button id="button4" class="radioButton">Stop</button>
+        </div>
+
+        <div id="overlay">
+            <div id="imageContainer">
+                <img id="romanticImage" src="" alt="Romantic Image">
+            </div>
+            <span id="closeOverlay">&times;</span>
+        </div>
+
+        <audio id="audioPlayer" controls style="display:none;"></audio>
+
+        <footer>
+            <div id="radioIcon"><i class="fas fa-broadcast-tower"></i></div>
+            <p>&copy; 2024 24/7 Radio Paradise. All rights reserved.</p>
+        </footer>
+    </div>
+
+    <script src="NEW.JS"></script>
+</body>
+</html>
